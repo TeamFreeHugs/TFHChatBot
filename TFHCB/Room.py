@@ -36,3 +36,13 @@ class Room:
 
     def on_message(self, callback):
         self.on_message_cbs.append(callback)
+
+    def join(self):
+        requests.post('http://localhost:3000/chat/rooms/' + str(self.id) + '/join', data={
+            'key': self.client.key
+        })
+
+    def leave(self):
+        requests.post('http://localhost:3000/chat/rooms/' + str(self.id) + '/leave', data={
+            'key': self.client.key
+        })

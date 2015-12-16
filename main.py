@@ -20,7 +20,8 @@ else:
 
 client = TFHChat.login(username, password)
 print('Logged in')
-room = client.get_room(4)
+room = client.get_room(0)
+room.join()
 room.on_message(chatcommunicate.callback)
 print('Chatbot started.')
 while True:
